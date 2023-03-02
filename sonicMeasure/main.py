@@ -45,23 +45,23 @@ def ultra():
 while True:
     clearLights()
     match ultra():
-      case >= 900:
+      case >= 500:
          ledGreenOne.value(1)
-      case < 900:
-         ledGreenTwo.value(1)
-      case < 800:
-         ledYellowThree.value(1)
-      case < 700:
-         ledYellowFour.value(1)
-      case < 600:
-         ledYellowFive.value(1)
       case < 500:
-         ledRedSix.value(1)
+         ledGreenTwo.value(1)
+      case < 450:
+         ledYellowThree.value(1)
       case < 400:
-         ledRedSeven.value(1)
+         ledYellowFour.value(1)
+      case < 350:
+         ledYellowFive.value(1)
       case < 300:
-         ledRedEight.value(1)
+         ledRedSix.value(1)
+      case < 250:
+         ledRedSeven.value(1)
       case < 200:
+         ledRedEight.value(1)
+      case < 150:
          ledRedNine.value(1)
       case < 100:
          ledRedTen.value(1)
