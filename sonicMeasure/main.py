@@ -2,7 +2,7 @@ from machine import Pin
 from time import sleep
 import utime
 
-ledGreenOne = Pin(9,Pin.OUT)
+ledGreenOne = Pin(10,Pin.OUT)
 ledGreenTwo = Pin(8,Pin.OUT)
 ledYellowThree = Pin(7,Pin.OUT)
 ledYellowFour = Pin(6,Pin.OUT)
@@ -16,7 +16,7 @@ ledRedTen = Pin(0,Pin.OUT)
 trigger = Pin(15, Pin.OUT)
 echo = Pin(14, Pin.IN)
 
-def clearLights:
+def clearLights():
     ledGreenOne.value(0)
     ledGreenTwo.value(0)
     ledYellowThree.value(0)
@@ -44,26 +44,25 @@ def ultra():
 
 while True:
     clearLights()
-    match ultra():
-      case >= 500:
-         ledGreenOne.value(1)
-      case < 500:
-         ledGreenTwo.value(1)
-      case < 450:
+    if ultra() >= 100:
+        ledGreenOne.value(1)
+    if ultra() < 100:
+        ledGreenTwo.value(1)
+    if ultra() < 90:
          ledYellowThree.value(1)
-      case < 400:
+    if ultra() < 80:
          ledYellowFour.value(1)
-      case < 350:
+    if ultra() < 70:
          ledYellowFive.value(1)
-      case < 300:
+    if ultra() < 60:
          ledRedSix.value(1)
-      case < 250:
+    if ultra() < 50:
          ledRedSeven.value(1)
-      case < 200:
+    if ultra() < 40:
          ledRedEight.value(1)
-      case < 150:
+    if ultra() < 30:
          ledRedNine.value(1)
-      case < 100:
+    if ultra() < 20:
          ledRedTen.value(1)
-    sleep(0.25)
+    sleep(1)
     
